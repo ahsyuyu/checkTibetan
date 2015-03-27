@@ -1,0 +1,36 @@
+﻿<html charset="utf-8">
+	<script src="roots.js" charset="utf-8"></script>
+	<script src="rootsWithVowelsWithSuffixes2D.js" charset="utf-8"></script>
+	<style>
+		#roots{line-height: 48px; font-size: 150%;}
+		#test{color:blue;}
+	</style>
+	<body>
+		<div id="roots"></div>
+	</body>
+	<script>
+		var renderRootsWithVowels = function(arr) {
+			var out="";
+			for(var i=0; i<arr.length; i++){
+				for(var j=0; j<arr[i].length; j++){
+					out+=arr[i][j]+"<br>"
+				}
+			}
+			return out;
+		}
+		var renderRootsWithVowelsWithSuffixes2D = function(arr) {
+			var out="";
+			arr.map(function(items){
+				items.map(function(item){
+					out+="&nbsp;&nbsp;"+item+"&nbsp;&nbsp;";
+				});
+				out+="<br>";
+			});
+			return out;
+		}
+		var out=renderRootsWithVowelsWithSuffixes2D(rootsWithVowelsWithSuffixes2D);
+
+		document.getElementById("roots").innerHTML=out;
+	</script>
+
+</html>

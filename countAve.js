@@ -8,7 +8,7 @@ var processFile = function(fn){
 }
 
 
-glob("./result/data/*.txt",function(err,files){
+glob("./result/*.txt",function(err,files){
   files.map(processFile);
   console.log(total / files.length);
 });

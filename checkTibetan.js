@@ -18,12 +18,23 @@ var processBampo = function(fn){
 	var bampo = fs.readFileSync(fn,"utf8");
   var pageContent = bampo.split(/<pb id="(\d+.\d+[ab])"\/>/);//[text,pb,text,pb, ...]
   var filename = fn.split("/")[3].substr(0,10);
-
+  
   for(var i=0; i<pageContent.length; i+=2){
+    //get the list of mispelling words
     pageContent[i].replace(/[\u0f20-\u0fbf]+/g,function(m){
      var index = indexOfSorted(letters,m);
-     if(index == -1) out.push([pageContent[i-1],m]);//console.log(pageContent[i-1],m);
+     if( index == -1 &&  !(m.substr(m.length-2) == "འི" || m.substr(m.length-2) == "འོ")) {//!m.substr(m.length-2).match(/[འིའོ]/)
+      console.log(m);
+      out.push([pageContent[i-1],m]);
+     }
     }); 
+
+    // var taggedPage = pageContent[i].replace(/[\u0f20-\u0fbf]+/g,function(m){
+    //  var index = indexOfSorted(letters,m);
+    //  if(index == -1) return "   ' "+m+" '   ";
+    //  else return m;
+    // }); 
+    //out.push([taggedPage])
   }
   fs.writeFileSync("./result/"+filename+".txt",JSON.stringify(out,""," "),"utf8");
 }

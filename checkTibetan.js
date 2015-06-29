@@ -1,6 +1,6 @@
 var fs=require("fs");
 var glob=require("glob");
-var letters=JSON.parse(fs.readFileSync("possibleRootLetters_sort.json","utf8"));
+var letters=JSON.parse(fs.readFileSync("possible_root_letters_sort.json","utf8"));
 
 var indexOfSorted = function (array, obj) { 
     var low = 0,

@@ -55,7 +55,7 @@ var rootsWithDa2ndSuffixes1D=getRootsWithDa2ndSuffixes1D();
 
 var possibleRootLetters=rootsWithVowels1D.concat(rootsWithVowelsWithSuffixes1D).concat(rootsWithSa2ndSuffixes1D).concat(rootsWithDa2ndSuffixes1D);
 
-fs.writeFileSync("possibleRootLetters.json",JSON.stringify(possibleRootLetters,""," "),"utf8");
+fs.writeFileSync("possible_root_letters.json",JSON.stringify(possibleRootLetters,""," "),"utf8");
 var c=0;
 roots.map(function(item){c += item.length});
 console.log(c);
